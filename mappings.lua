@@ -11,7 +11,10 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -20,6 +23,20 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    [";f"] = { function() require('telescope.builtin').find_files() end },
+    [";F"] = { function() require('telescope.builtin').git_files() end },
+    [";b"] = { function() require('telescope.builtin').buffers() end },
+    -- LSP
+    ["<Leader>a"] = { function() vim.lsp.buf.code_action() end, desc = "LSP Code action" },
+    -- Window movement
+    ["<S-Left>"] = { "<C-w>h" },
+    ["<S-Down>"] = { "<C-w>j" },
+    ["<S-Up>"] = { "<C-w>k" },
+    ["<S-Right>"] = { "<C-w>l" },
+  },
+  v = {
+    -- LSP
+    ["<Leader>a"] = { function() vim.lsp.buf.code_action() end, desc = "LSP Code action" }
   },
   t = {
     -- setting a mapping to false will disable it
