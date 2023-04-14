@@ -25,9 +25,15 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     [";f"] = { function() require('telescope.builtin').find_files() end },
     [";F"] = { function() require('telescope.builtin').git_files() end },
+    [";p"] = { ":Telescope projects<CR>" },
     [";b"] = { function() require('telescope.builtin').buffers() end },
     -- LSP
     ["<Leader>a"] = { function() vim.lsp.buf.code_action() end, desc = "LSP Code action" },
+    ["L"] = { function()
+      vim.lsp.diagnostic.get_line_diagnostics(nil, vim.fn.line('.'), { severity_limit = "Warning" },
+        nil)
+    end, desc =
+    "LSP Code action" },
     -- Window movement
     ["<S-Left>"] = { "<C-w>h" },
     ["<S-Down>"] = { "<C-w>j" },
