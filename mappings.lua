@@ -27,13 +27,14 @@ return {
     [";F"] = { function() require('telescope.builtin').git_files() end },
     [";p"] = { ":Telescope projects<CR>" },
     [";b"] = { function() require('telescope.builtin').buffers() end },
+    [";;"] = { ":b#<cr>" },
+    -- Testing
+    [";t"] = { ":TestLast<CR>" },
+    [";T"] = { ":TestNearest<CR>" },
     -- LSP
     ["<Leader>a"] = { function() vim.lsp.buf.code_action() end, desc = "LSP Code action" },
-    ["L"] = { function()
-      vim.lsp.diagnostic.get_line_diagnostics(nil, vim.fn.line('.'), { severity_limit = "Warning" },
-        nil)
-    end, desc =
-    "LSP Code action" },
+    ["<leader>d"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
+    ["L"] = { "gl" },
     -- Window movement
     ["<S-Left>"] = { "<C-w>h" },
     ["<S-Down>"] = { "<C-w>j" },

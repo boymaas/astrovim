@@ -22,4 +22,38 @@ return {
     config = function(_, opts) require("project_nvim").setup(opts) end,
   },
   { "nvim-telescope/telescope.nvim", opts = function() require("telescope").load_extension "projects" end },
+  {
+    "vim-test/vim-test",
+    event = "VeryLazy",
+  },
+  {
+    "Bryley/neoai.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = {
+      "NeoAI",
+      "NeoAIOpen",
+      "NeoAIClose",
+      "NeoAIToggle",
+      "NeoAIContext",
+      "NeoAIContextOpen",
+      "NeoAIContextClose",
+      "NeoAIInject",
+      "NeoAIInjectCode",
+      "NeoAIInjectContext",
+      "NeoAIInjectContextCode",
+    },
+    keys = {
+      { "<leader>As", desc = "summarize text" },
+      { "<leader>Ag", desc = "generate git message" },
+    },
+    config = function()
+      -- https://github.com/Bryley/neoai.nvim#setup
+      require("neoai").setup({
+        -- Options go here
+      })
+    end,
+  }
 }
