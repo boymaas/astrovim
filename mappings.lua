@@ -18,6 +18,9 @@ return {
       end,
       desc = "Pick to close",
     },
+    -- faster page-up and down
+    ["<C-j>"] = { "<C-f>" },
+    ["<C-k>"] = { "<C-b>" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
